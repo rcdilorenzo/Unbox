@@ -313,9 +313,7 @@ public class Unboxer {
     private var failureInfo: (key: String, value: Any?)?
     private let dictionary: UnboxableDictionary
     
-    // MARK: - Private initializer
-    
-    private init(dictionary: UnboxableDictionary, context: Any?) {
+    public init(dictionary: UnboxableDictionary, context: Any?) {
         self.dictionary = dictionary
         self.context = context
     }
@@ -585,7 +583,7 @@ private extension UnboxableWithContext {
     }
 }
 
-private extension Unboxer {
+public extension Unboxer {
     static func unboxerFromData(data: NSData, context: Any?) throws -> Unboxer {
         do {
             guard let dictionary = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? UnboxableDictionary else {
